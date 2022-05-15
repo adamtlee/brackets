@@ -9,7 +9,7 @@ namespace Brackets.ConsoleApp
         {
             Console.WriteLine("Brackets Tool.");
             CsvReader csvReader = new CsvReader();
-            csvReader.ReadFilePath();
+            csvReader.ReadFile();
       
             string path = "C:/Brackets/athletes.csv";
             string[] lines = File.ReadAllLines(path);
