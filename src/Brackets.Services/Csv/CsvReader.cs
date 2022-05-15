@@ -2,9 +2,10 @@
 {
     public class CsvReader
     {
-        public void ReadFile()
+        public string[] ReadLines(string path)
         {
-            Console.WriteLine("Read File");
+            string[] lines = File.ReadAllLines(path);
+            return lines;
         }
     }
 }

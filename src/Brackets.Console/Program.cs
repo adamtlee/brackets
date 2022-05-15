@@ -1,4 +1,5 @@
 ﻿
+using Brackets.Models.Athletes;
 using Brackets.Services.Csv;
 
 namespace Brackets.ConsoleApp
@@ -8,18 +9,39 @@ namespace Brackets.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Brackets Tool.");
-            CsvReader csvReader = new CsvReader();
-            csvReader.ReadFile();
-      
+
             string path = "C:/Brackets/athletes.csv";
-            string[] lines = File.ReadAllLines(path);
-            foreach (string line in lines)
+
+           List<Athlete > listOfAthletes = new List<Athlete>(); 
+
+            CsvReader csvReader = new CsvReader();
+            var result = csvReader.ReadLines(path);
+
+            foreach(var val in result)
             {
-                string[] parts = line.Split(',');
-                foreach (string part in parts)
+                string[] parts = val.Split(',');
+
+                var a = new Athlete
                 {
-                    Console.WriteLine(part);
-                }
+                    Academy = parts[0],
+                    FirstName = parts[1],
+                    LastName = parts[2],
+                    Weight = parts[3]
+                };
+
+                listOfAthletes.Add(a);
+
+            }
+            
+
+            foreach (var ath in listOfAthletes)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Printing athlete: ");
+                Console.WriteLine(ath.Academy);
+                Console.WriteLine(ath.FirstName);
+                Console.WriteLine(ath.LastName);
+                Console.WriteLine(ath.Weight);
             }
 
             Console.ReadKey();
