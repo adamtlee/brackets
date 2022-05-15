@@ -1,4 +1,6 @@
 ﻿
+using Brackets.Services.Csv;
+
 namespace Brackets.ConsoleApp
 {
     public class Program
@@ -6,7 +8,9 @@ namespace Brackets.ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Brackets Tool.");
-
+            CsvReader csvReader = new CsvReader();
+            csvReader.ReadFilePath();
+      
             string path = "C:/Brackets/athletes.csv";
             string[] lines = File.ReadAllLines(path);
             foreach (string line in lines)
