@@ -20,28 +20,28 @@ namespace Brackets.ConsoleApp
             foreach(var val in result)
             {
                 string[] parts = val.Split(',');
-
-                var a = new Athlete
+                 
+                var athlete = new Athlete
                 {
                     Academy = parts[0],
                     FirstName = parts[1],
                     LastName = parts[2],
-                    Weight = parts[3]
-                };
+                    // Todo: Convert to decimal or double.
+                    Weight = int.Parse(parts[3])
+            };
 
-                listOfAthletes.Add(a);
+                listOfAthletes.Add(athlete);
 
             }
-            
 
-            foreach (var ath in listOfAthletes)
+            foreach (var athlete in listOfAthletes)
             {
                 Console.WriteLine();
                 Console.WriteLine("Printing athlete: ");
-                Console.WriteLine(ath.Academy);
-                Console.WriteLine(ath.FirstName);
-                Console.WriteLine(ath.LastName);
-                Console.WriteLine(ath.Weight);
+                Console.WriteLine(athlete.Academy);
+                Console.WriteLine(athlete.FirstName);
+                Console.WriteLine(athlete.LastName);
+                Console.WriteLine(athlete.Weight.GetType());
             }
 
             Console.ReadKey();

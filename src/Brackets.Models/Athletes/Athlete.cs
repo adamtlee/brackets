@@ -11,6 +11,6 @@ namespace Brackets.Models.Athletes
         public string Academy { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Weight { get; set; }
+        public int Weight { get; set; }
     }
 }
