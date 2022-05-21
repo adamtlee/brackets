@@ -1,6 +1,7 @@
 ﻿
 using Brackets.Models.Athletes;
 using Brackets.Services.Csv;
+using Brackets.Services.Sort;
 
 namespace Brackets.ConsoleApp
 {
@@ -12,7 +13,7 @@ namespace Brackets.ConsoleApp
 
             string path = "C:/Brackets/athletes.csv";
 
-           List<Athlete > listOfAthletes = new List<Athlete>(); 
+           List<Athlete> listOfAthletes = new List<Athlete>(); 
 
             CsvReader csvReader = new CsvReader();
             var result = csvReader.ReadLines(path);
@@ -41,8 +42,25 @@ namespace Brackets.ConsoleApp
                 Console.WriteLine(athlete.Academy);
                 Console.WriteLine(athlete.FirstName);
                 Console.WriteLine(athlete.LastName);
-                Console.WriteLine(athlete.Weight.GetType());
+                Console.WriteLine(athlete.Weight);
             }
+
+            BasicSort bs = new BasicSort();
+            var sortedList = bs.Sort(listOfAthletes);
+
+            Console.WriteLine();
+            Console.WriteLine("Sorted List");
+            Console.WriteLine("___________________________________");
+            foreach (var athlete in sortedList)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Printing athlete: ");
+                Console.WriteLine(athlete.Academy);
+                Console.WriteLine(athlete.FirstName);
+                Console.WriteLine(athlete.LastName);
+                Console.WriteLine(athlete.Weight);
+            }
+
 
             Console.ReadKey();
         }
