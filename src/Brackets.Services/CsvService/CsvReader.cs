@@ -1,4 +1,4 @@
-﻿namespace Brackets.Services.Csv
+﻿namespace Brackets.Services.CsvService
 {
     public class CsvReader
     {

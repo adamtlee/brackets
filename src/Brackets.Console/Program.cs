@@ -1,7 +1,7 @@
 ﻿
 using Brackets.Models.Athletes;
 using Brackets.Services.AthleteService;
-using Brackets.Services.Csv;
+using Brackets.Services.CsvService;
 using Brackets.Services.Sort;
 
 namespace Brackets.ConsoleApp
