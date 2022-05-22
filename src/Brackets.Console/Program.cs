@@ -1,5 +1,6 @@
 ﻿
 using Brackets.Models.Athletes;
+using Brackets.Services.AthleteService;
 using Brackets.Services.Csv;
 using Brackets.Services.Sort;
 
@@ -13,7 +14,8 @@ namespace Brackets.ConsoleApp
 
             string path = "C:/Brackets/athletes.csv";
 
-           List<Athlete> listOfAthletes = new List<Athlete>(); 
+            List<Athlete> listOfAthletes = new List<Athlete>();
+            AthleteServices athleteServices = new AthleteServices(); 
 
             CsvReader csvReader = new CsvReader();
             var result = csvReader.ReadLines(path);
@@ -21,7 +23,7 @@ namespace Brackets.ConsoleApp
             foreach(var val in result)
             {
                 string[] parts = val.Split(',');
-                 
+
                 var athlete = new Athlete
                 {
                     Academy = parts[0],
@@ -32,8 +34,9 @@ namespace Brackets.ConsoleApp
                     Win = int.Parse(parts[4]),
                     Loss = int.Parse(parts[5]),
                     Draw = int.Parse(parts[6]),
+                    
                 };
-
+                athlete.TotalMatches = athleteServices.CalculateTotalMatches(athlete.Win, athlete.Loss, athlete.Draw);
                 listOfAthletes.Add(athlete);
 
             }
@@ -49,6 +52,7 @@ namespace Brackets.ConsoleApp
                 Console.WriteLine(athlete.Win);
                 Console.WriteLine(athlete.Loss);
                 Console.WriteLine(athlete.Draw);
+                Console.WriteLine(athlete.TotalMatches);
             }
 
             BasicSort bs = new BasicSort();
@@ -68,6 +72,7 @@ namespace Brackets.ConsoleApp
                 Console.WriteLine(athlete.Win);
                 Console.WriteLine(athlete.Loss);
                 Console.WriteLine(athlete.Draw);
+                Console.WriteLine(athlete.TotalMatches);
             }
 
             Console.ReadKey();

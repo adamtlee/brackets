@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Brackets.Models.Athletes
+﻿namespace Brackets.Models.Athletes
 {
     public class Athlete
     {
@@ -15,5 +9,6 @@ namespace Brackets.Models.Athletes
         public int Win {  get; set; }
         public int Loss { get; set; }
         public int Draw { get; set; }
+        public int TotalMatches { get; set; }
     }
 }
