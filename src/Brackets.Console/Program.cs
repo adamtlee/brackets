@@ -28,8 +28,11 @@ namespace Brackets.ConsoleApp
                     FirstName = parts[1],
                     LastName = parts[2],
                     // Todo: Convert to decimal or double.
-                    Weight = int.Parse(parts[3])
-            };
+                    Weight = int.Parse(parts[3]),
+                    Win = int.Parse(parts[4]),
+                    Loss = int.Parse(parts[5]),
+                    Draw = int.Parse(parts[6]),
+                };
 
                 listOfAthletes.Add(athlete);
 
@@ -43,15 +46,18 @@ namespace Brackets.ConsoleApp
                 Console.WriteLine(athlete.FirstName);
                 Console.WriteLine(athlete.LastName);
                 Console.WriteLine(athlete.Weight);
+                Console.WriteLine(athlete.Win);
+                Console.WriteLine(athlete.Loss);
+                Console.WriteLine(athlete.Draw);
             }
 
             BasicSort bs = new BasicSort();
-            var sortedList = bs.Sort(listOfAthletes);
+            var sortedListByWeight = bs.SortWeight(listOfAthletes);
 
             Console.WriteLine();
             Console.WriteLine("Sorted List");
             Console.WriteLine("___________________________________");
-            foreach (var athlete in sortedList)
+            foreach (var athlete in sortedListByWeight)
             {
                 Console.WriteLine();
                 Console.WriteLine("Printing athlete: ");
@@ -59,8 +65,10 @@ namespace Brackets.ConsoleApp
                 Console.WriteLine(athlete.FirstName);
                 Console.WriteLine(athlete.LastName);
                 Console.WriteLine(athlete.Weight);
+                Console.WriteLine(athlete.Win);
+                Console.WriteLine(athlete.Loss);
+                Console.WriteLine(athlete.Draw);
             }
-
 
             Console.ReadKey();
         }

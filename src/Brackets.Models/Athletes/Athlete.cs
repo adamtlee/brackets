@@ -12,5 +12,8 @@ namespace Brackets.Models.Athletes
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Weight { get; set; }
+        public int Win {  get; set; }
+        public int Loss { get; set; }
+        public int Draw { get; set; }
     }
 }

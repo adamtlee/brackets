@@ -3,7 +3,7 @@ namespace Brackets.Services.Sort
 {
     public class BasicSort
     {
-        public List<Athlete> Sort(List<Athlete> athletes)
+        public List<Athlete> SortWeight(List<Athlete> athletes)
         {
             athletes.Sort(delegate (Athlete x, Athlete y)
             {
