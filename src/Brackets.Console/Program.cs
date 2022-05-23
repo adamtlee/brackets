@@ -41,19 +41,8 @@ namespace Brackets.ConsoleApp
 
             }
 
-            foreach (var athlete in listOfAthletes)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Printing athlete: ");
-                Console.WriteLine(athlete.Academy);
-                Console.WriteLine(athlete.FirstName);
-                Console.WriteLine(athlete.LastName);
-                Console.WriteLine(athlete.Weight);
-                Console.WriteLine(athlete.Win);
-                Console.WriteLine(athlete.Loss);
-                Console.WriteLine(athlete.Draw);
-                Console.WriteLine(athlete.TotalMatches);
-            }
+            CsvWriter csvWriter = new CsvWriter();
+            csvWriter.PrintCSVResult(listOfAthletes);
 
             BasicSort bs = new BasicSort();
             var sortedListByWeight = bs.SortWeight(listOfAthletes);
@@ -61,20 +50,7 @@ namespace Brackets.ConsoleApp
             Console.WriteLine();
             Console.WriteLine("Sorted List");
             Console.WriteLine("___________________________________");
-            foreach (var athlete in sortedListByWeight)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Printing athlete: ");
-                Console.WriteLine(athlete.Academy);
-                Console.WriteLine(athlete.FirstName);
-                Console.WriteLine(athlete.LastName);
-                Console.WriteLine(athlete.Weight);
-                Console.WriteLine(athlete.Win);
-                Console.WriteLine(athlete.Loss);
-                Console.WriteLine(athlete.Draw);
-                Console.WriteLine(athlete.TotalMatches);
-            }
-
+            csvWriter.PrintCSVResult(sortedListByWeight);
             Console.ReadKey();
         }
     }
