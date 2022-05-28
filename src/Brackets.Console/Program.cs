@@ -13,6 +13,7 @@ namespace Brackets.ConsoleApp
             Console.WriteLine("Brackets Tool.");
 
             string path = "C:/Brackets/athletes.csv";
+            string outputPath = "C:/Brackets/bracket.csv"; 
 
             List<Athlete> listOfAthletes = new List<Athlete>();
             AthleteServices athleteServices = new AthleteServices(); 
@@ -46,6 +47,8 @@ namespace Brackets.ConsoleApp
 
             BasicSort bs = new BasicSort();
             var sortedListByWeight = bs.SortWeight(listOfAthletes);
+
+            csvWriter.GenerateBracket(outputPath, sortedListByWeight);
 
             Console.WriteLine();
             Console.WriteLine("Sorted List");
