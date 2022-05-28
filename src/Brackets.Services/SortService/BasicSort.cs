@@ -1,6 +1,6 @@
 ﻿using Brackets.Models.Athletes;
 
-namespace Brackets.Services.Sort
+namespace Brackets.Services.SortService
 {
     public class BasicSort
     { 

@@ -2,7 +2,7 @@
 using Brackets.Models.Athletes;
 using Brackets.Services.AthleteService;
 using Brackets.Services.CsvService;
-using Brackets.Services.Sort;
+using Brackets.Services.SortService;
 
 namespace Brackets.ConsoleApp
 {
@@ -50,10 +50,30 @@ namespace Brackets.ConsoleApp
 
             csvWriter.GenerateBracket(outputPath, sortedListByWeight);
 
+            var matches = new List<Match>();
+            // TODO: Refactor this nasty brute force.
+            for(int i = 0; i < listOfAthletes.Count; i++)
+            {
+                for(int j = i+1; j < listOfAthletes.Count; j++)
+                {
+                    if(listOfAthletes[i].Weight == listOfAthletes[j].Weight)
+                    {
+                        var match = athleteServices.PairMatch(listOfAthletes[i], listOfAthletes[j]);
+                        matches.Add(match);
+                    }
+                }
+            }
+
             Console.WriteLine();
             Console.WriteLine("Sorted List");
             Console.WriteLine("___________________________________");
-            csvWriter.PrintCSVResult(sortedListByWeight);
+            foreach(var m in matches)
+            {
+                Console.WriteLine($"{m.athleteOne.FirstName} {m.athleteOne.LastName} vs {m.athleteTwo.FirstName} {m.athleteTwo.LastName}");
+                Console.WriteLine();
+            }
+            
+            // csvWriter.PrintCSVResult(sortedListByWeight);
             Console.ReadKey();
         }
     }

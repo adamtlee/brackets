@@ -1,6 +1,6 @@
 ﻿using Brackets.Models.Athletes;
 using Brackets.Services.AthleteService;
-using Brackets.Services.Sort;
+using Brackets.Services.SortService;
 using NUnit.Framework;
 using System.Collections.Generic;
 
