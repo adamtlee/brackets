@@ -5,7 +5,7 @@ namespace Brackets.Services.CsvService
 {
     public class CsvWriter
     {
-        public void GenerateBracket(string path, List<Athlete> listOfAthletes)
+        public void GenerateRoster(string path, List<Athlete> listOfAthletes)
         {
             StringBuilder sb = new StringBuilder();
             string[] headers = {"Academy", "First Name", "Last Name", "Weight", "Win", "Loss", "Draw", "Total Matches"};
@@ -29,6 +29,26 @@ namespace Brackets.Services.CsvService
                         listOfAthletes[i].TotalMatches
                         )
                     );
+            }
+            File.WriteAllText(path, sb.ToString());
+        }
+
+        public void GenerateBracket(string path, List<Match> matches)
+        {
+            StringBuilder sb = new StringBuilder();
+            string[] headers = { "Athlete - Red", "vs", "Athlete - Blue" };
+            sb.AppendLine(string.Join(",", headers));
+            File.WriteAllText(path, sb.ToString());
+            for (int i = 0; i < matches.Count; i++)
+            {
+                sb.AppendLine(
+                    string.Join(
+                        ",",
+                        matches[i].athleteOne.FirstName + " " + matches[i].athleteOne.LastName,
+                        "vs",
+                        matches[i].athleteTwo.FirstName + " " + matches[i].athleteTwo.LastName
+                        )
+                );
             }
             File.WriteAllText(path, sb.ToString());
         }

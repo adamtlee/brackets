@@ -13,7 +13,7 @@ namespace Brackets.ConsoleApp
             Console.WriteLine("Brackets Tool.");
 
             string path = "C:/Brackets/athletes.csv";
-            string outputPath = "C:/Brackets/bracket.csv"; 
+            string outputPath = "C:/Brackets/sorted_roster.csv"; 
 
             List<Athlete> listOfAthletes = new List<Athlete>();
             AthleteServices athleteServices = new AthleteServices(); 
@@ -48,7 +48,7 @@ namespace Brackets.ConsoleApp
             BasicSort bs = new BasicSort();
             var sortedListByWeight = bs.SortWeight(listOfAthletes);
 
-            csvWriter.GenerateBracket(outputPath, sortedListByWeight);
+            csvWriter.GenerateRoster(outputPath, sortedListByWeight);
 
             var matches = new List<Match>();
             // TODO: Refactor this nasty brute force.
@@ -63,6 +63,9 @@ namespace Brackets.ConsoleApp
                     }
                 }
             }
+
+            var bracketOutputPath = "C:/Brackets/bracket.csv";
+            csvWriter.GenerateBracket(bracketOutputPath, matches);
 
             Console.WriteLine();
             Console.WriteLine("Sorted List");
