@@ -30,11 +30,12 @@ namespace Brackets.ConsoleApp
                     Academy = parts[0],
                     FirstName = parts[1],
                     LastName = parts[2],
+                    CurrentWeight = double.Parse(parts[3]),
                     // Todo: Convert to decimal or double.
-                    Weight = int.Parse(parts[3]),
-                    Win = int.Parse(parts[4]),
-                    Loss = int.Parse(parts[5]),
-                    Draw = int.Parse(parts[6]),
+                    Weight = int.Parse(parts[4]),
+                    Win = int.Parse(parts[5]),
+                    Loss = int.Parse(parts[6]),
+                    Draw = int.Parse(parts[7]),
                     
                 };
                 athlete.TotalMatches = athleteServices.CalculateTotalMatches(athlete.Win, athlete.Loss, athlete.Draw);
