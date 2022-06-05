@@ -33,12 +33,12 @@ namespace Brackets.Services.AthleteService
             return listOfAthletes;
 
         }
-        public int CalculateTotalMatches(int win, int loss, int draw)
+        private int CalculateTotalMatches(int win, int loss, int draw)
         {
             return win + loss + draw;
         }
 
-        public bool OnWeight(int registeredWeight, double actualWeight)
+        private bool OnWeight(int registeredWeight, double actualWeight)
         {
             if(registeredWeight >= actualWeight)
             {

@@ -22,7 +22,7 @@ namespace Brackets.Services.MatchService
             return matches;
         }
 
-        public Match PairMatch(Athlete athleteOne, Athlete athleteTwo)
+        private Match PairMatch(Athlete athleteOne, Athlete athleteTwo)
         {
             var match = new Match()
             {
