@@ -9,40 +9,37 @@ namespace Brackets.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Brackets Tool.");
+            Console.WriteLine("Welcome to the Brackets Tool.");
 
-            string path = "C:/Brackets/athletes.csv";
-            string outputPath = "C:/Brackets/sorted_roster.csv"; 
+            string inputPath = "C:/Brackets/athletes.csv";
+            string sortedOutputPath = "C:/Brackets/sorted_roster.csv";
+            var bracketOutputPath = "C:/Brackets/bracket.csv";
 
             AthleteService athleteService = new AthleteService(); 
             CsvReader csvReader = new CsvReader();
 
-            var rows = csvReader.ReadLines(path);
+            Console.WriteLine($"Reading data from file: {inputPath}");
+            var rows = csvReader.ReadLines(inputPath);
+
+            Console.WriteLine("Mapping data into objects..."); 
             var listOfAthletes = athleteService.AthleteMapper(rows);
 
             CsvWriter csvWriter = new CsvWriter();
-            // csvWriter.PrintCSVResult(listOfAthletes);
 
+            Console.WriteLine("Sorting athletes by weight...");
             BasicSort bs = new BasicSort();
             var sortedListByWeight = bs.SortWeight(listOfAthletes);
 
-            csvWriter.GenerateRoster(outputPath, sortedListByWeight);
+            Console.WriteLine($"Generating sorted list of athletes by weight to file: {sortedOutputPath}");
+            csvWriter.GenerateRoster(sortedOutputPath, sortedListByWeight);
 
             MatchService matchService = new MatchService();
+            Console.WriteLine("Creating matches...");
             var matches = matchService.CreateMatches(listOfAthletes);
 
-            var bracketOutputPath = "C:/Brackets/bracket.csv";
+            Console.WriteLine($"Generating matches to file: {bracketOutputPath}");
             csvWriter.GenerateBracket(bracketOutputPath, matches);
-
-            Console.WriteLine();
-            Console.WriteLine("___________________________________");
-            foreach(var m in matches)
-            {
-                Console.WriteLine($"{m.athleteOne.FirstName} {m.athleteOne.LastName} vs {m.athleteTwo.FirstName} {m.athleteTwo.LastName}");
-                Console.WriteLine();
-            }
             
-            // csvWriter.PrintCSVResult(sortedListByWeight);
             Console.ReadKey();
         }
     }
