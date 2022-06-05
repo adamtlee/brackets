@@ -15,34 +15,14 @@ namespace Brackets.ConsoleApp
             string path = "C:/Brackets/athletes.csv";
             string outputPath = "C:/Brackets/sorted_roster.csv"; 
 
-            List<Athlete> listOfAthletes = new List<Athlete>();
             AthleteService athleteService = new AthleteService(); 
 
             CsvReader csvReader = new CsvReader();
-            var result = csvReader.ReadLines(path);
+            var rows = csvReader.ReadLines(path);
 
-            foreach(var val in result)
-            {
-                string[] parts = val.Split(',');
+            var listOfAthletes = athleteService.AthleteMapper(rows);
 
-                var athlete = new Athlete
-                {
-                    Academy = parts[0],
-                    FirstName = parts[1],
-                    LastName = parts[2],
-                    CurrentWeight = double.Parse(parts[3]),
-                    // Todo: Convert to decimal or double.
-                    RegisteredWeight = int.Parse(parts[4]),
-                    Win = int.Parse(parts[5]),
-                    Loss = int.Parse(parts[6]),
-                    Draw = int.Parse(parts[7]),
-                    
-                };
-                athlete.TotalMatches = athleteService.CalculateTotalMatches(athlete.Win, athlete.Loss, athlete.Draw);
-                athlete.OnWeight = athleteService.OnWeight(athlete.RegisteredWeight, athlete.CurrentWeight);
-                listOfAthletes.Add(athlete);
-
-            }
+            
 
             CsvWriter csvWriter = new CsvWriter();
             csvWriter.PrintCSVResult(listOfAthletes);
