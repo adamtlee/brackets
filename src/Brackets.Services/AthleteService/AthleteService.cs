@@ -46,16 +46,5 @@ namespace Brackets.Services.AthleteService
             }
             return false;
         }
-
-        public Match PairMatch(Athlete athleteOne, Athlete athleteTwo)
-        {
-            var match = new Match()
-            {
-                athleteOne = athleteOne,
-                athleteTwo = athleteTwo
-            };
-
-            return match;
-        }
     }
 }
