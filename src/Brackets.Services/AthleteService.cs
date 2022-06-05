@@ -1,6 +1,6 @@
 ﻿using Brackets.Models.Athletes;
 
-namespace Brackets.Services.AthleteService
+namespace Brackets.Services
 {
     public class AthleteService
     {

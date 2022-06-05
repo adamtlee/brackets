@@ -1,7 +1,5 @@
-﻿using Brackets.Services.AthleteService;
+﻿using Brackets.Services;
 using Brackets.Services.CsvService;
-using Brackets.Services.MatchService;
-using Brackets.Services.SortService;
 
 namespace Brackets.ConsoleApp
 {

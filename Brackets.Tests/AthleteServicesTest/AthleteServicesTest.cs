@@ -1,4 +1,4 @@
-﻿using Brackets.Services.AthleteService;
+﻿using Brackets.Services;
 using NUnit.Framework;
 using System;
 
@@ -6,7 +6,7 @@ namespace Brackets.Tests.AthleteServicesTest
 {
     public class AthleteServicesTest
     {
-
+        // TODO: Rewrite these test cases.
         [SetUp]
         public void Setup()
         {

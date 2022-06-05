@@ -1,6 +1,5 @@
 ﻿using Brackets.Models.Athletes;
-using Brackets.Services.AthleteService;
-using Brackets.Services.SortService;
+using Brackets.Services;
 using NUnit.Framework;
 using System.Collections.Generic;
 
@@ -30,7 +29,7 @@ namespace Brackets.Tests.SortServiceTest
                     Win = 100,
                     Loss = 0,
                     Draw = 0,
-                    Weight = 125
+                    RegisteredWeight = 125
                 },
                 new Athlete()
                 {
@@ -40,7 +39,7 @@ namespace Brackets.Tests.SortServiceTest
                     Win = 22,
                     Loss = 3,
                     Draw = 1,
-                    Weight = 285
+                    RegisteredWeight = 285
                 },
                 new Athlete()
                 {
@@ -50,7 +49,7 @@ namespace Brackets.Tests.SortServiceTest
                     Win = 245,
                     Loss = 1,
                     Draw = 3,
-                    Weight = 145
+                    RegisteredWeight = 145
                 }
             };
 
