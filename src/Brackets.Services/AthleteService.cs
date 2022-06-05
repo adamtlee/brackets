@@ -46,5 +46,15 @@ namespace Brackets.Services
             }
             return false;
         }
+        public void isSingleCompetitor(List<Athlete> listOfAthletes)
+        {
+            foreach(var athlete in listOfAthletes)
+            {
+                if(athlete.Matches == 0)
+                {
+                    athlete.IsChampion = true;
+                }
+            }
+        }
     }
 }

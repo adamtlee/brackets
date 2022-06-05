@@ -29,7 +29,8 @@ namespace Brackets.Services
                 athleteOne = athleteOne,
                 athleteTwo = athleteTwo
             };
-
+            athleteOne.Matches += 1;
+            athleteTwo.Matches += 1;
             return match;
         }
     }

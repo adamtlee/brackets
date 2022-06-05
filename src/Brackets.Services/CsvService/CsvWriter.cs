@@ -8,7 +8,7 @@ namespace Brackets.Services.CsvService
         public void GenerateRoster(string path, List<Athlete> listOfAthletes)
         {
             StringBuilder sb = new StringBuilder();
-            string[] headers = {"Academy", "First Name", "Last Name","Current Weight", "Weight", "Win", "Loss", "Draw", "Total Matches", "On Weight"};
+            string[] headers = {"Academy", "First Name", "Last Name","Current Weight", "Weight", "Win", "Loss", "Draw", "Total Matches", "On Weight", "isChampion"};
             
             
             sb.AppendLine(string.Join("," , headers));
@@ -28,7 +28,8 @@ namespace Brackets.Services.CsvService
                         listOfAthletes[i].Loss,
                         listOfAthletes[i].Draw,
                         listOfAthletes[i].TotalMatches,
-                        listOfAthletes[i].OnWeight
+                        listOfAthletes[i].OnWeight,
+                        listOfAthletes[i].IsChampion
                         )
                     );
             }

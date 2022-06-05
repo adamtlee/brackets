@@ -28,12 +28,15 @@ namespace Brackets.ConsoleApp
             BasicSort bs = new BasicSort();
             var sortedListByWeight = bs.SortWeight(listOfAthletes);
 
-            Console.WriteLine($"Generating sorted list of athletes by weight to file: {sortedOutputPath}");
-            csvWriter.GenerateRoster(sortedOutputPath, sortedListByWeight);
-
             MatchService matchService = new MatchService();
             Console.WriteLine("Creating matches...");
             var matches = matchService.CreateMatches(listOfAthletes);
+
+            Console.WriteLine("Filtering single competitors...");
+            athleteService.isSingleCompetitor(sortedListByWeight); 
+
+            Console.WriteLine($"Generating sorted list of athletes by weight to file: {sortedOutputPath}");
+            csvWriter.GenerateRoster(sortedOutputPath, sortedListByWeight);
 
             Console.WriteLine($"Generating matches to file: {bracketOutputPath}");
             csvWriter.GenerateBracket(bracketOutputPath, matches);
