@@ -8,7 +8,7 @@ namespace Brackets.Services.SortService
         {
             athletes.Sort(delegate (Athlete x, Athlete y)
             {
-                return x.Weight.CompareTo(y.Weight);
+                return x.RegisteredWeight.CompareTo(y.RegisteredWeight);
             });
             
             return athletes;

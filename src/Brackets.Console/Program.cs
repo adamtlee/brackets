@@ -16,7 +16,7 @@ namespace Brackets.ConsoleApp
             string outputPath = "C:/Brackets/sorted_roster.csv"; 
 
             List<Athlete> listOfAthletes = new List<Athlete>();
-            AthleteServices athleteServices = new AthleteServices(); 
+            AthleteService athleteService = new AthleteService(); 
 
             CsvReader csvReader = new CsvReader();
             var result = csvReader.ReadLines(path);
@@ -32,13 +32,14 @@ namespace Brackets.ConsoleApp
                     LastName = parts[2],
                     CurrentWeight = double.Parse(parts[3]),
                     // Todo: Convert to decimal or double.
-                    Weight = int.Parse(parts[4]),
+                    RegisteredWeight = int.Parse(parts[4]),
                     Win = int.Parse(parts[5]),
                     Loss = int.Parse(parts[6]),
                     Draw = int.Parse(parts[7]),
                     
                 };
-                athlete.TotalMatches = athleteServices.CalculateTotalMatches(athlete.Win, athlete.Loss, athlete.Draw);
+                athlete.TotalMatches = athleteService.CalculateTotalMatches(athlete.Win, athlete.Loss, athlete.Draw);
+                athlete.OnWeight = athleteService.OnWeight(athlete.RegisteredWeight, athlete.CurrentWeight);
                 listOfAthletes.Add(athlete);
 
             }
@@ -57,9 +58,9 @@ namespace Brackets.ConsoleApp
             {
                 for(int j = i+1; j < listOfAthletes.Count; j++)
                 {
-                    if(listOfAthletes[i].Weight == listOfAthletes[j].Weight)
+                    if(listOfAthletes[i].RegisteredWeight == listOfAthletes[j].RegisteredWeight)
                     {
-                        var match = athleteServices.PairMatch(listOfAthletes[i], listOfAthletes[j]);
+                        var match = athleteService.PairMatch(listOfAthletes[i], listOfAthletes[j]);
                         matches.Add(match);
                     }
                 }

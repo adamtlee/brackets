@@ -19,7 +19,7 @@ namespace Brackets.Tests.SortServiceTest
             // Arrange
 
             BasicSort basicSort = new BasicSort();
-            AthleteServices athleteService = new AthleteServices();
+            AthleteService athleteService = new AthleteService();
             List<Athlete> listofAthletes = new List<Athlete>()
             {
                 new Athlete()

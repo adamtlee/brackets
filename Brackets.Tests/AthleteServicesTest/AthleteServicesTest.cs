@@ -16,7 +16,7 @@ namespace Brackets.Tests.AthleteServicesTest
         public void CalculateTotalMatches_Should_Pass()
         {
             // Arrange
-            AthleteServices athleteServices = new AthleteServices(); 
+            AthleteService athleteServices = new AthleteService(); 
 
             Random randomIntGenerator = new Random();
             var wins = randomIntGenerator.Next();
@@ -36,7 +36,7 @@ namespace Brackets.Tests.AthleteServicesTest
         public void CalculateTotalMatches_Should_Fail()
         {
             // Arrange
-            AthleteServices athleteServices = new AthleteServices();
+            AthleteService athleteServices = new AthleteService();
           
             var wins = 5;
             var losses = 5;
