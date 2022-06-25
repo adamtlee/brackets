@@ -46,6 +46,16 @@ namespace Brackets.Services
             }
             return false;
         }
+
+        public bool IsSameAcademy(Athlete athleteOne, Athlete athleteTwo)
+        {
+            if (athleteOne.Academy.ToLower() == athleteTwo.Academy.ToLower())
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void isSingleCompetitor(List<Athlete> listOfAthletes)
         {
             foreach(var athlete in listOfAthletes)

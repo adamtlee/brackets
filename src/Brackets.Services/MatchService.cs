@@ -6,13 +6,15 @@ namespace Brackets.Services
     {
         public List<Match> CreateMatches(List<Athlete> listOfAthletes)
         {
+            AthleteService athleteService = new AthleteService();
             var matches = new List<Match>();
             // TODO: Refactor this nasty brute force.
             for (int i = 0; i < listOfAthletes.Count; i++)
             {
                 for (int j = i + 1; j < listOfAthletes.Count; j++)
                 {
-                    if (listOfAthletes[i].RegisteredWeight == listOfAthletes[j].RegisteredWeight)
+                    bool sameAcademy = athleteService.IsSameAcademy(listOfAthletes[i], listOfAthletes[j]);
+                    if (listOfAthletes[i].RegisteredWeight == listOfAthletes[j].RegisteredWeight && !sameAcademy)
                     {
                         var match = PairMatch(listOfAthletes[i], listOfAthletes[j]);
                         matches.Add(match);
