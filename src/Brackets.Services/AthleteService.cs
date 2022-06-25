@@ -26,8 +26,7 @@ namespace Brackets.Services
                     FirstName = parts[1],
                     LastName = parts[2],
                     CurrentWeight = double.Parse(parts[3]),
-                    // Todo: Convert to decimal or double.
-                    RegisteredWeight = int.Parse(parts[4]),
+                    RegisteredWeight = double.Parse(parts[4]),
                     Win = int.Parse(parts[5]),
                     Loss = int.Parse(parts[6]),
                     Draw = int.Parse(parts[7]),
@@ -45,7 +44,7 @@ namespace Brackets.Services
             return win + loss + draw;
         }
 
-        private bool OnWeight(int registeredWeight, double actualWeight)
+        private bool OnWeight(double registeredWeight, double actualWeight)
         {
             if(registeredWeight >= actualWeight)
             {

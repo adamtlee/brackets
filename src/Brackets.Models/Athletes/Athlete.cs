@@ -5,7 +5,7 @@
         public string Academy { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int RegisteredWeight { get; set; }
+        public double RegisteredWeight { get; set; }
         public double CurrentWeight { get; set; }
         public int Win {  get; set; }
         public int Loss { get; set; }
