@@ -25,8 +25,7 @@ namespace Brackets.ConsoleApp
             CsvWriter csvWriter = new CsvWriter();
 
             Console.WriteLine("Sorting athletes by weight...");
-            BasicSort bs = new BasicSort();
-            var sortedListByWeight = bs.SortWeight(listOfAthletes);
+            var sortedListByWeight = athleteService.SortWeight(listOfAthletes);
 
             MatchService matchService = new MatchService();
             Console.WriteLine("Creating matches...");

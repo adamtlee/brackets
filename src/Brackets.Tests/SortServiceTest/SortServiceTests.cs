@@ -17,7 +17,7 @@ namespace Brackets.Tests.SortServiceTest
         {
             // Arrange
 
-            BasicSort basicSort = new BasicSort();
+      
             AthleteService athleteService = new AthleteService();
             List<Athlete> listofAthletes = new List<Athlete>()
             {
@@ -54,7 +54,7 @@ namespace Brackets.Tests.SortServiceTest
             };
 
             // Act
-            var result = basicSort.SortWeight(listofAthletes); 
+            var result = athleteService.SortWeight(listofAthletes); 
 
             // Assert
 

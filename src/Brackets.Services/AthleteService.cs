@@ -4,7 +4,15 @@ namespace Brackets.Services
 {
     public class AthleteService
     {
+        public List<Athlete> SortWeight(List<Athlete> athletes)
+        {
+            athletes.Sort(delegate (Athlete x, Athlete y)
+            {
+                return x.RegisteredWeight.CompareTo(y.RegisteredWeight);
+            });
 
+            return athletes;
+        }
         public List<Athlete> AthleteMapper(string[] rows)
         {
             List<Athlete> listOfAthletes = new List<Athlete>();
@@ -31,7 +39,6 @@ namespace Brackets.Services
             }
 
             return listOfAthletes;
-
         }
         private int CalculateTotalMatches(int win, int loss, int draw)
         {
