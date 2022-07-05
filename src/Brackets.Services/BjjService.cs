@@ -2,7 +2,7 @@
 
 namespace Brackets.Services
 {
-    public class MuayThaiService
+    public class BjjService
     {
         public void execute(string inputPath, string sortedOutputPath, string bracketOutputPath)
         {
@@ -15,7 +15,7 @@ namespace Brackets.Services
                 var rows = csvReader.ReadLines(inputPath);
 
                 Console.WriteLine("Mapping data into objects...");
-                var listOfAthletes = athleteService.MuayThaiAthleteMapper(rows);
+                var listOfAthletes = athleteService.AthleteMapper(rows);
 
                 CsvWriter csvWriter = new CsvWriter();
 

@@ -23,7 +23,8 @@ namespace Brackets.ConsoleApp
 
             if (menu.ToLower() == "bjj")
             {
-                Console.WriteLine("TODO: BJJ Mode");
+                BjjService bjjService = new BjjService();
+                bjjService.execute(inputPath, sortedOutputPath, bracketOutputPath);
             }
 
             if (menu.ToLower() == "na")

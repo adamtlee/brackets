@@ -13,7 +13,7 @@ namespace Brackets.Services
 
             return athletes;
         }
-        public List<Athlete> AthleteMapper(string[] rows)
+        public List<Athlete> MuayThaiAthleteMapper(string[] rows)
         {
             List<Athlete> listOfAthletes = new List<Athlete>();
             foreach (var val in rows)
