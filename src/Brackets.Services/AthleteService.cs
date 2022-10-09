@@ -2,7 +2,7 @@
 
 namespace Brackets.Services
 {
-    public class AthleteService
+    public class AthleteService : IAthleteService
     {
         public List<Athlete> SortWeight(List<Athlete> athletes)
         {
@@ -13,7 +13,7 @@ namespace Brackets.Services
 
             return athletes;
         }
-        public List<Athlete> MuayThaiAthleteMapper(string[] rows)
+        public List<Athlete> AthleteMapper(string[] rows)
         {
             List<Athlete> listOfAthletes = new List<Athlete>();
             foreach (var val in rows)
@@ -46,9 +46,9 @@ namespace Brackets.Services
 
         private bool OnWeight(double registeredWeight, double actualWeight)
         {
-            if(registeredWeight >= actualWeight)
+            if (registeredWeight >= actualWeight)
             {
-                return true; 
+                return true;
             }
             return false;
         }
@@ -64,9 +64,9 @@ namespace Brackets.Services
 
         public void isSingleCompetitor(List<Athlete> listOfAthletes)
         {
-            foreach(var athlete in listOfAthletes)
+            foreach (var athlete in listOfAthletes)
             {
-                if(athlete.Matches == 0)
+                if (athlete.Matches == 0)
                 {
                     athlete.IsChampion = true;
                 }

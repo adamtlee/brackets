@@ -1,4 +1,5 @@
 ﻿using Brackets.Services;
+using Brackets.Services.CsvService;
 
 namespace Brackets.ConsoleApp
 {
@@ -6,6 +7,9 @@ namespace Brackets.ConsoleApp
     {
         static void Main(string[] args)
         {
+            AthleteService athleteService = new AthleteService();
+            CsvReader csvReader = new CsvReader();
+            CsvWriter csvWriter = new CsvWriter();  
             Console.WriteLine("Welcome to the Brackets Tool.");
 
             string inputPath = "C:/Brackets/athletes.csv";
@@ -17,8 +21,8 @@ namespace Brackets.ConsoleApp
 
             if (menu.ToLower() == "mt")
             {
-                MuayThaiService mtService = new MuayThaiService();
-                mtService.execute(inputPath, sortedOutputPath, bracketOutputPath);
+                MuayThaiService mtService = new MuayThaiService(athleteService, csvReader, csvWriter );
+                mtService.generateReportMT(inputPath, sortedOutputPath, bracketOutputPath);
             }
 
             if (menu.ToLower() == "bjj")
